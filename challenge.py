@@ -1,8 +1,13 @@
-import time
+from datetime import datetime
 
 
-def finish_date():
-    # You have to code here!!
+def finish_date(function):
+    def wrapper(*args, **kwargs):
+        function(*args, **kwargs)
+        now_time = datetime.now()
+        print('Finish the program: ', now_time.strftime('%d/%m/%Y - %H:%M:%S'))
+    return wrapper
+        
 
 
 @finish_date
